@@ -71,3 +71,11 @@ To compile your project for production/distribution:
 ```bash
 osmium build
 ```
+
+## ⚖️ License & Terms
+
+Osmium is a proprietary tool developed by [skonplayz](https://github.com/skonplayz).
+
+* **Usage:** You are free to use Osmium to create, build, and distribute your own applications.
+* **Restrictions:** You may not redistribute the Osmium binary itself, reverse engineer the source code, or claim the framework as your own.
+* **Ownership:** All rights to the Osmium engine and its associated brand are reserved.
