@@ -435,7 +435,7 @@ terminal-visibility = true
 Run it:
 
 ```bash
-node bin/osmium.js run demo-project
+osmium run demo-project
 ```
 
 Build it:
