@@ -1,81 +1,121 @@
-# How to set up Osmium to begin using it
+# Getting Started with Osmium
 
-## 1. Installation & Environment Setup
-
-### Install the Latest Version
-Download the latest Osmium executable from the [Releases](https://github.com/skonplayz/osmium/releases) page.
-
-### Adding to PATH (Efficient Method)
-To run `osmium` commands from any terminal, you must add the folder containing the executable to your Environment Variables.
-
-#### Option A: User PATH (Recommended)
-* **Best for:** Personal use on a shared machine or if you do not have Admin rights.
-* **Privileges:** **No Administrator privileges required.**
-1. Copy the path to your Osmium folder.
-2. Open the start menu and search up `env`
-3. Select `Edit environment variables for your account`
-4. Select `PATH`, then `Edit`
-<img width="610" height="572" alt="image" src="https://github.com/user-attachments/assets/cad97069-f9a1-42ae-8142-4812e28b46ca" />
-5. After clicking on `edit`, you should see a window that looks like this. Click `New` and paste the path to your Osmium folder you copied earlier.
-<img width="517" height="494" alt="image" src="https://github.com/user-attachments/assets/d5c803ef-c376-40c5-b546-21ed10c8a3ed" />
-
-#### Option B: System-wide PATH
-* **Best for:** Making the tool available to every user account on the PC.
-* **Privileges:** **Requires Administrator privileges.**
-1. Press `Win + S`, search for "Environment Variables," and select **Edit the system environment variables**.
-2. Click **Environment Variables** at the bottom right.
-3. Under **System variables**, find **Path**, click **Edit**, then **New**.
-4. Paste the folder path and click **OK**.
-
-*Note: Restart any open terminals (or VS Code) for the changes to take effect.*
+Osmium is a device-based scripting runtime for building CLI tools and desktop applications. Write `.osd` scripts, run them instantly, or compile them into standalone Windows executables.
 
 ---
 
-## 2. Project Initialization
+## Prerequisites
 
+Osmium ships as a self-contained `.exe` so you do not need any additional software or runtimes
 
-1. **Create a Project Folder:** Create a new folder (e.g., `My Osmium App`).
-2. **Open Terminal:** Right-click inside the folder and select **Open in Terminal**.
-3. **Initialize:** Run the following command to generate a template for project files:
-   ```bash
-   osmium init
-   ```
+---
 
-## 3. Coding & Customization
-1. Open with VS Code: Right-click in the folder and select Open with Code (or your preferred code editor).
+## 1. Installation
 
-Edit master.osd: Define your logic within the script. For example:
+Download the latest Osmium executable from the [Releases](https://github.com/skonplayz/osmium/releases) page and place it in a folder of your choice (e.g. `C:\Osmium`).
 
-```julia
+### Adding Osmium to PATH
+
+To use `osmium` commands from any terminal, add the folder containing the executable to your PATH.
+
+#### Option A: User PATH *(Recommended — no admin rights required)*
+
+Best for personal use or machines where you don't have Administrator privileges.
+
+1. Copy the path to your Osmium folder (e.g. `C:\Osmium`).
+2. Open the Start menu and search for `env`.
+3. Select **Edit environment variables for your account**.
+4. Select **Path**, then click **Edit**.
+
+   <img width="610" height="572" alt="Environment Variables window" src="https://github.com/user-attachments/assets/cad97069-f9a1-42ae-8142-4812e28b46ca" />
+
+5. Click **New**, paste your Osmium folder path, then click **OK**.
+
+   <img width="517" height="494" alt="Edit Path window" src="https://github.com/user-attachments/assets/d5c803ef-c376-40c5-b546-21ed10c8a3ed" />
+
+#### Option B: System-wide PATH *(Requires Administrator privileges)*
+
+Best for making Osmium available to all user accounts on the machine.
+
+1. Press `Win + S`, search for **Environment Variables**, and select **Edit the system environment variables**.
+2. Click **Environment Variables** at the bottom right.
+3. Under **System variables**, select **Path** and click **Edit**.
+4. Click **New**, paste your Osmium folder path, then click **OK**.
+
+### Restart any open terminals (or VS Code) for PATH changes to take effect.
+
+### Optional: Register the Windows Context Menu
+
+Run the following command once to add an **Execute Osmium Device** right-click option for `.osd` files:
+
+```bash
+osmium register
+```
+
+---
+
+## 2. Creating a Project
+
+1. Create a new folder for your project (e.g. `my-osmium-app`).
+2. Right-click inside the folder and select **Open in Terminal**.
+3. Run the init command to generate your project files:
+
+```bash
+osmium init
+```
+
+This gives you options for what files to create. The default is a master.osd entry file and a settings.toml project config file.
+
+---
+
+## 3. Writing Your First Script
+
+Open your project in VS Code (or any editor) and edit `master.osd`:
+
+```
 use cli
 
 dollars = 4
 
-onstart {
+onStart {
     cli.print("Starting program...")
     dollars = (dollars * 5)
-    cli.print("You have", dollars, "dollars.")
+    cli.print("You have {dollars} dollars.")
 }
 ```
-Save your changes (Ctrl + S).
+
+A few things to note:
+- `onStart { }` is the only entry point, so nothing will run until you call it here
+- `use cli` loads the CLI extension
+- Variables are dynamically typed and created on assignment
+
+---
 
 ## 4. Running & Building
-To execute your code and see the output in the console:
 
+**Run your project:**
 ```bash
 osmium run
 ```
-### Build the App
-To compile your project for production/distribution:
 
+**Watch for changes and auto-reload:**
+```bash
+osmium watch
+```
+
+**Build a standalone exe for distribution:**
 ```bash
 osmium build
 ```
+
+The compiled `.exe` will be written to the `dist/` folder inside your project.
+
+---
 
 ## ⚖️ License & Terms
 
 Osmium is a proprietary tool developed by [skonplayz](https://github.com/skonplayz).
 
-* **Usage:** You are free to use Osmium to create, build, and distribute your own applications.
-* **Restrictions:** You may not redistribute the Osmium binary itself, reverse engineer the source code, or claim the framework as your own.
-* **Ownership:** All rights to the Osmium engine and its associated brand are reserved.
+- **Usage:** You are free to use Osmium to create, build, and distribute your own cli apps
+- **Restrictions:** You may not redistribute the Osmium binary, reverse engineer the source code, or claim the framework as your own
+- **Ownership:** All rights to the Osmium engine and its associated brand are reserved
