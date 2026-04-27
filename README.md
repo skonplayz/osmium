@@ -1,6 +1,6 @@
 # Getting Started with Osmium
 
-Osmium is a device-based scripting runtime for building CLI tools and desktop applications. Write `.osd` scripts, run them instantly, or compile them into standalone Windows executables.
+Osmium is a device-based scripting runtime for building CLI tools and desktop applications. Write `.osd` scripts, test them and then build them into Windows apps
 
 ---
 
