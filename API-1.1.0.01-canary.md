@@ -1,6 +1,6 @@
-# Osmium API Reference
+# Osmium API Reference for 1.1.0.01-canary
 
-This document describes the current Osmium runtime, syntax, and built-in extension APIs.
+This document describes the 1.1.0.01-canary Osmium runtime, syntax, and built-in extension APIs.
 
 ## 1. Language Overview
 
