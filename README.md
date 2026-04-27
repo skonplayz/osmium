@@ -34,7 +34,7 @@ Best for personal use or machines where you don't have Administrator privileges.
 
    <img width="517" height="494" alt="Edit Path window" src="https://github.com/user-attachments/assets/d5c803ef-c376-40c5-b546-21ed10c8a3ed" />
 
-#### Option B: System-wide PATH *(Requires Administrator privileges)*
+#### Option B: System-wide PATH (Requires admin privileges)
 
 Best for making Osmium available to all user accounts on the machine.
 
@@ -43,7 +43,7 @@ Best for making Osmium available to all user accounts on the machine.
 3. Under **System variables**, select **Path** and click **Edit**.
 4. Click **New**, paste your Osmium folder path, then click **OK**.
 
-### Restart any open terminals (or VS Code) for PATH changes to take effect.
+ Restart any open terminals or VS Code for PATH changes to work
 
 ### Optional: Register the Windows Context Menu
 
