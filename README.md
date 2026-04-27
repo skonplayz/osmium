@@ -18,7 +18,8 @@ Download the latest Osmium executable from the [Releases](https://github.com/sko
 
 To use `osmium` commands from any terminal, add the folder containing the executable to your PATH.
 
-#### Option A: User PATH *(Recommended — no admin rights required)*
+#### Option A: User PATH (Recommended)
+- You do not need admin rights
 
 Best for personal use or machines where you don't have Administrator privileges.
 
